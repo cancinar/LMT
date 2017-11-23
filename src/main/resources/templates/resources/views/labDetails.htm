@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default animate-show" id="listLabPanel">
+            <div class="panel-heading">
+                <input class='btn btn-success' type='button'
+                       data-toggle="modal" class="font-large center"
+                       data-target="#addLabModal" value="Create Lab"/>
+                <input class='btn btn-success' type='button'
+                       data-toggle="modal" class="font-large center"
+                       data-target="#addServerModal" value="Create Server"/>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Logical IP</th>
+                            <th>Instance Type</th>
+                            <th>Host Name</th>
+                            <th>HardwareType</th>
+                            <th>Lab Release</th>
+                            <th>A2 Type</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="server in servers">
+                            <td>{{server.id}}</td>
+                            <td>{{server.instanceType}}</td>
+                            <td>{{server.logicalIp}}</a></td>
+                            <td>{{server.hostName}}</td>
+                            <td>{{server.hardwareType}}</td>
+                            <td>{{server.a2Type}}</td>
+                            <td></td>
+                            <td><input class='btn btn-danger btn-xs' ng-click="removeServer($index)" type='button' value='Delete'/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <add-lab-modal></add-lab-modal>
+    <add-server-modal></add-server-modal>
+</div>

@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default animate-show" id="listLabPanel">
+            <div class="panel-heading">
+                <input class='btn btn-success' type='button'
+                       data-toggle="modal" class="font-large center"
+                       data-target="#addLabModal" value="Create Lab"/>
+                <input class='btn btn-success' type='button'
+                       data-toggle="modal" class="font-large center"
+                       data-target="#addServerModal" value="Create Server"/>
+<div class="panel-body">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Lab ID</th>
+            <th>Lab Name</th>
+            <th>Lab Prime</th>
+            <th>MCP GUI</th>
+            <th>Lab Release</th>
+            <th>Lab Owner</th>
+            <th>Prov Links</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="lab in labs">
+            <td>{{lab.id}}</td>
+            <td> <a href="#!/labServers/{{lab.id}}" ng-click="setData($index)">{{lab.labName}}</a></td>
+            <td>{{lab.labPrime}}</td>
+            <td><a target="_blank" class="selector" ng-href="{{url}}" ng-click="getLink(lab.serviceIp)">
+                <div class="landscape">
+                    <img src="resources/icons/mcp.png">
+                </div>
+            </a></td>
+            <td>{{lab.labRelease}}</td>
+            <td>{{lab.labOwner}}</td>
+            <td><a target="_blank" class="selector" ng-href="{{url}}" ng-click="getprovLink(lab.prov1Ip)">
+                <button type="button" class="btn btn-info btn-xs">PROV1</button></a>
+                <a target="_blank" class="selector" ng-href="{{url}}" ng-click="getProvLink(lab.prov2Ip)">
+                    <button type="button" class="btn btn-info btn-xs">PROV2</button>
+                </a>
+            </td>
+            <td><input class='btn btn-danger btn-xs' ng-click="removeLab($index)" type='button' value='Delete'/></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+            </div>
+        </div>
+    </div>
+    <add-lab-modal></add-lab-modal>
+    <add-server-modal></add-server-modal>
+            </div>

@@ -1,0 +1,47 @@
+<div class="modal fade" id="addLabModal" tabindex="-1" role="dialog" aria-labelledby="networkModelLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="labModelLabel">Add Lab</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-small" name="addLabForm" id="addLabFormID"
+                      ng-submit="addLab()"
+                      novalidate>
+                    <input class="form-control" name="name" ng-model="lab.labName"
+                           data-toggle="tooltip" title="Lab Name"
+                           placeholder="Lab Name" required>
+                    <input class="form-control" name="serviceIp" ng-model="lab.serviceIp"
+                           data-toggle="tooltip" title="Service IP"
+                           placeholder="Service IP" required>
+
+                    <input class="form-control" name="prov1Ip" ng-model="lab.prov1Ip"
+                           data-toggle="tooltip" title="Prov 1 IP"
+                           placeholder="Prov1 IP" required>
+                    <input class="form-control" name="serviceIp" ng-model="lab.prov2Ip"
+                           data-toggle="tooltip" title="Prov 2 IP"
+                           placeholder="Prov2 IP" required>
+
+                    <input class="form-control" name="labPrime" ng-model="lab.labPrime"
+                           data-toggle="tooltip" title="Lab Prime"
+                           placeholder="Lab Prime" required>
+                    <select class="form-control"
+                            ng-model="lab.labRelease"
+                            ng-options="labRelease for labRelease in labReleases" required>
+                    </select>
+                    <select class="form-control"
+                            ng-model="lab.labOwner"
+                            ng-options="labOwner for labOwner in labOwners" required>
+                    </select>
+                </form>
+            </div>
+            <div class="modal-footer" ng-controller="getLabsController">
+                <button form="addLabFormID" type="submit" class="btn btn-primary" ng-click="getLabs()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="getLabs()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of add network modal -->

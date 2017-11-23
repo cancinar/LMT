@@ -1,0 +1,44 @@
+<div class="modal fade" id="addServerModal" tabindex="-1" role="dialog" aria-labelledby="networkModelLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="serverModelLabel">Add Server</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-small" name="addServerForm" id="addServerFormID"
+                      ng-submit="addServer()"
+                      novalidate>
+                    <input class="form-control" name="name" ng-model="server.name"
+                           data-toggle="tooltip" title="Server Name"
+                           placeholder="Server Name" required>
+                    <input class="form-control" name="logicalIp" ng-model="server.logicalIp"
+                           data-toggle="tooltip" title="Logical IP"
+                           placeholder="Logical IP" required>
+                    <input class="form-control" name="hostName" ng-model="server.hostName"
+                           data-toggle="tooltip" title="Host Name"
+                           placeholder="Host Name" required>
+                    <input class="form-control" name="instancetype" ng-model="server.instanceType"
+                           data-toggle="tooltip" title="Instance Type"
+                           placeholder="Instance Type" required>
+                    <input class="form-control" name="hardwareType" ng-model="server.hardwareType"
+                           data-toggle="tooltip" title="Hardware Type"
+                           placeholder="Hardware Type" required>
+                    <input class="form-control" name="a2Type" ng-model="server.a2Type"
+                           data-toggle="tooltip" title="A2 Type"
+                           placeholder="A2 Type" required>
+                    <select class="form-control"
+                            ng-model="server.lab"
+                            ng-options="lab as lab.labName for lab in labs track by lab.id" required>
+                    </select>
+                </form>
+            </div>
+            <div class="modal-footer" ng-controller="getLabsController">
+                <button form="addServerFormID" type="submit" class="btn btn-primary" ng-click="getLabs()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="getLabs()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of add network modal -->
